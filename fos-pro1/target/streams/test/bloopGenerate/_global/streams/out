@@ -1,0 +1,4 @@
+[debug] [fos-pro1-test] Classpath dependencies List()
+[debug] [fos-pro1-test] Dependencies from configurations List(fos-pro1)
+[debug] Bloop wrote the configuration of project 'fos-pro1-test' to '/home/zhiyew/projects/fos-pro1/.bloop/fos-pro1-test.json'
+[success] Generated .bloop/fos-pro1-test.json

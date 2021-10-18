@@ -1,0 +1,38 @@
+[0m[[0m[33mwarn[0m] [0m[0m[33m-- [E029] Pattern Match Exhaustivity Warning: /home/zhiyew/projects/fos-pro1/src/main/scala/fos/Arithmetic.scala:33:56 [0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m33 |[0m      | [31m"if"[0m ~ term ~ [31m"then"[0m ~ term ~ [31m"else"[0m ~ term ^^ {[33mcase[0m [31m"if"[0m ~t1 ~ [31m"then"[0m ~ t2 ~ [31m"else"[0m ~ t3 => If(t1,t2,t3)}[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |                                                        [33m^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |                            [33mmatch[0m may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |                            It would fail on pattern case: ~(~(_, _), _)[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m-- [E029] Pattern Match Exhaustivity Warning: /home/zhiyew/projects/fos-pro1/src/main/scala/fos/Arithmetic.scala:35:26 [0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m35 |[0m      | [31m"succ"[0m ~ term ^^ {[33mcase[0m [31m"succ"[0m ~ t => Succ(t)}[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |                          [33m^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |                          [33mmatch[0m may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |                          It would fail on pattern case: ~(_, _)[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m-- [E029] Pattern Match Exhaustivity Warning: /home/zhiyew/projects/fos-pro1/src/main/scala/fos/Arithmetic.scala:36:26 [0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m36 |[0m      | [31m"pred"[0m ~ term ^^ {[33mcase[0m [31m"pred"[0m ~ t => Pred(t)}[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |                          [33m^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |                          [33mmatch[0m may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |                          It would fail on pattern case: ~(_, _)[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m-- [E029] Pattern Match Exhaustivity Warning: /home/zhiyew/projects/fos-pro1/src/main/scala/fos/Arithmetic.scala:37:28 [0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m37 |[0m      | [31m"iszero"[0m ~ term ^^ {[33mcase[0m [31m"iszero"[0m ~ t => IsZero(t)} [0m
+[0m[[0m[33mwarn[0m] [0m[0m   |                            [33m^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |                            [33mmatch[0m may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |                            It would fail on pattern case: ~(_, _)[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m-- [E030] Match case Unreachable Warning: /home/zhiyew/projects/fos-pro1/src/main/scala/fos/Arithmetic.scala:102:11 [0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m102 |[0m      [33mcase[0m Pred(t) => [33mif[0m eval(t) eq Zero [33mthen[0m Zero [33melse[0m  [33mthrow[0m [33mnew[0m TermIsStuck(t)[0m
+[0m[[0m[33mwarn[0m] [0m[0m    |           [33m^^^^^^^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m    |           Unreachable case[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m-- [E030] Match case Unreachable Warning: /home/zhiyew/projects/fos-pro1/src/main/scala/fos/Arithmetic.scala:104:11 [0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m104 |[0m      [33mcase[0m IsZero(t) => [33mif[0m isANumber(eval(t))&& (eval(t) ne Zero) [33mthen[0m False [33melse[0m [33mthrow[0m [33mnew[0m TermIsStuck(t)[0m
+[0m[[0m[33mwarn[0m] [0m[0m    |           [33m^^^^^^^^^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m    |           Unreachable case[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m-- [E121] Pattern Match Warning: /home/zhiyew/projects/fos-pro1/src/main/scala/fos/Arithmetic.scala:105:11 [0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m105 |[0m      [33mcase[0m _ => [33mthrow[0m [33mnew[0m TermIsStuck(t)[0m
+[0m[[0m[33mwarn[0m] [0m[0m    |           [33m^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m    |Unreachable case except for [31mnull[0m (if this is intentional, consider writing [33mcase[0m [31mnull[0m => instead).[0m
+[0m[[0m[33mwarn[0m] [0m[0m7 warnings found[0m
+[0m[[0m[33mwarn[0m] [0m[0m7 warnings found[0m

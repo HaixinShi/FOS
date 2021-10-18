@@ -1,0 +1,14 @@
+[0m[[0m[33mwarn[0m] [0m[0m[33m-- [E029] Pattern Match Exhaustivity Warning: /home/zhiyew/projects/fos-pro2/src/main/scala/fos/Untyped.scala:21:36 [0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m21 |[0m    | [31m"\\"[0m ~ ident ~ [31m"."[0m ~ term ^^ {[33mcase[0m [31m"\\"[0m ~ ident ~ [31m"."[0m ~ term => Abs(ident, term)}[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |                                    [33m^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |                            [33mmatch[0m may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |                            It would fail on pattern case: ~(~(_, _), _)[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m-- [E029] Pattern Match Exhaustivity Warning: /home/zhiyew/projects/fos-pro2/src/main/scala/fos/Untyped.scala:22:27 [0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m22 |[0m    | [31m"("[0m ~ term ~ [31m")"[0m ^^ {[33mcase[0m [31m"("[0m ~ term ~ [31m")"[0m => term}[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |                           [33m^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |                           [33mmatch[0m may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |                           It would fail on pattern case: ~(~(_, _), _)[0m
+[0m[[0m[33mwarn[0m] [0m[0mtwo warnings found[0m
+[0m[[0m[33mwarn[0m] [0m[0mtwo warnings found[0m
