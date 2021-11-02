@@ -1,6 +1,6 @@
 package fos
 
-import fos.SimplyTyped.numericLit
+import fos.SimplyTyped.{numericLit, typeof}
 
 import scala.util.parsing.combinator.syntactical.StandardTokenParsers
 import scala.util.parsing.input.*
@@ -51,19 +51,15 @@ object SimplyTyped extends StandardTokenParsers {
       {case "{" ~ t1 ~ "," ~ t2 ~ "}" => TermPair(t1, t2)})
     | "fst" ~ term ^^ {case "fst" ~ t => First(t)}
     | "snd" ~ term ^^ {case "snd" ~ t => Second(t)}
-    | numericLit ^^ {
-      case "0"=>Zero
-      case "1"=>Succ(Zero)
-      case "2"=>Succ(Succ(Zero))
-      case "3"=>Succ(Succ(Succ(Zero)))
-      case "4"=>Succ(Succ(Succ(Succ(Zero))))
-      case "5"=>Succ(Succ(Succ(Succ(Succ(Zero)))))
-      case "6"=>Succ(Succ(Succ(Succ(Succ(Succ(Zero))))))
-      case "7"=>Succ(Succ(Succ(Succ(Succ(Succ(Succ(Zero)))))))
-      case "8"=>Succ(Succ(Succ(Succ(Succ(Succ(Succ(Succ(Zero))))))))
-      case "9"=>Succ(Succ(Succ(Succ(Succ(Succ(Succ(Succ(Succ(Zero)))))))))
-    }
+    | numericLit ^^ {case str => number2Str(str.toInt)}
     )
+
+  def number2Str(i: Int):Term = {
+    var tmp:Term = Zero;
+    for(i <- 1 to i)
+      tmp = Succ(tmp)
+    return tmp
+  }
 
   def term: Parser[Term] = (
     termPrime ~ rep(termPrime) ^^ reduceList
@@ -177,7 +173,7 @@ object SimplyTyped extends StandardTokenParsers {
    *  @param s the term we replace x with
    *  @return  ...
    */
-  def subst(t: Term, x: String, s: Term): Term = t match{//[x -> t] s
+  def subst(t: Term, x: String, s: Term): Term = t match{
     case Var(str) => if str == x then s else Var(str)
     case Abs(str, tp, term) => str == x match{
       case true => Abs(str, tp, term)
@@ -242,8 +238,51 @@ object SimplyTyped extends StandardTokenParsers {
    *  @param t   the given term
    *  @return    the computed type
    */
-  def typeof(ctx: Context, t: Term): Type =
-    ???
+  def typeof(ctx: Context, t: Term): Type = t match {
+    case True => TypeBool
+    case False => TypeBool
+    case Zero => TypeNat
+    case Pred(t0) => typeof(ctx, t0) match {
+      case TypeNat => TypeNat
+      case _ => throw new TypeError(t, "Nat type expected but " + typeof(ctx, t0).toString() + " found")
+    }
+    case Succ(t0) => typeof(ctx, t0) match {
+      case TypeNat => TypeNat
+      case _ => throw new TypeError(t, "Nat type expected but " + typeof(ctx, t0).toString() + " found")
+    }
+    case IsZero(t0) => typeof(ctx, t0) match {
+      case TypeNat => TypeBool
+      case _ => throw new TypeError(t, "Nat type expected but " + typeof(ctx, t0).toString() + " found")
+    }
+    case If(cond, t1, t2) => typeof(ctx, cond) match {
+      case TypeBool => typeof(ctx, t1) == typeof(ctx, t2) match {
+        case true => typeof(ctx, t1)
+        case false => throw new TypeError(t, "Type of t1 " + typeof(ctx, t1).toString() + " type of t2 " +
+          typeof(ctx, t1).toString() + " are different, but should be the same")
+      }
+      case _ => throw new TypeError(t, "Bool type expected but " + typeof(ctx, t1).toString() + " found")
+    }
+    case Var(s) => (ctx.map(_._2).lift(ctx.indexWhere(_._1 == s))).getOrElse(TypeBool)
+    case Abs(v, tp, t2) => TypeFun(tp, typeof(ctx :+ (v, tp), t2))
+    case App(t1, t2) => typeof(ctx, t1) match {
+      case TypeFun(tp1, tp2) => typeof(ctx, t2) == tp1 match {
+        case true => tp2
+        case false => throw new TypeError(t, "parameter type mismatch: expected " + tp1.toString() +
+          " but found " +  typeof(ctx, t2).toString())
+      }
+    }
+    case TermPair(t1, t2) => TypePair(typeof(ctx, t1), typeof(ctx, t2))
+    case First(t0) => typeof(ctx, t0) match {
+      case TypePair(tp1, tp2) => tp1
+      case _ => throw new TypeError(t, "pair type expected but " + typeof(ctx, t0) + " found")
+    }
+    case Second(t0) => typeof(ctx, t0) match {
+      case TypePair(tp1, tp2) => tp2
+      case _ => throw new TypeError(t, "pair type expected but " + typeof(ctx, t0) + " found")
+    }
+    case _ => throw new TypeError(t, "Type of this term is wrong")
+  }
+
 
 
   /** Returns a stream of terms, each being one step of reduction.
@@ -267,9 +306,10 @@ object SimplyTyped extends StandardTokenParsers {
     phrase(term)(tokens) match {
       case Success(trees, _) =>
         try {
-//          println("typed: " + typeof(Nil, trees))
-          for (t <- path(trees, reduce))
-            println(t)
+          println(trees)
+          println("typed: " + typeof(Nil, trees))
+//          for (t <- path(trees, reduce))
+//            println(t)
         } catch {
           case tperror: Exception => println(tperror.toString)
         }
