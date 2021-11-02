@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id="root-3-typed [file:/Users/wangyuxin/Desktop/Master/CS/fos/3-typed/]" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="SBT" type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_17">
+<module external.linked.project.id="root-3-typed [file:/D:/EPFL/fos/3-typed/]" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="SBT" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output url="file://$MODULE_DIR$/../../target/scala-3.0.2/classes" />
     <output-test url="file://$MODULE_DIR$/../../target/scala-3.0.2/test-classes" />
     <exclude-output />
