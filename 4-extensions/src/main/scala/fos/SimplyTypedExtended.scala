@@ -128,6 +128,18 @@ object SimplyTypedExtended extends  StandardTokenParsers {
       case Second(t1) => calculateFv(t1)
       case TermPair(t1, t2) => calculateFv(t1).++(calculateFv(t2))
 
+      case Case(t0: Term, x1: String, t1: Term, x2: String, t2: Term) =>{
+        var tmp = calculateFv(t0)
+        tmp = tmp ++ calculateFv(t1)
+        tmp = tmp ++ (calculateFv(t2))
+        tmp
+      }
+      case Inr(t0: Term, tpe: Type) =>calculateFv(t0)
+      case Inl(t0: Term, tpe: Type) =>calculateFv(t0)
+      case Fix(t0: Term) =>{
+        calculateFv(t0)
+      }
+
       case _ => Set()
     }}
   def subst(t: Term, x: String, s: Term): Term = {//[x->s]t
@@ -152,6 +164,18 @@ object SimplyTypedExtended extends  StandardTokenParsers {
       case Second(t1) => Second(subst(t1, x, s))
       case TermPair(t1, t2) => TermPair(subst(t1, x, s), subst(t2, x, s))
       case If(cond, t1, t2) => If(subst(cond, x, s), subst(t1, x, s), subst(t2, x, s))
+      //project4
+      case Case(t0: Term, x1: String, t1: Term, x2: String, t2: Term) =>{
+        val temp = fos.TypeBool//type would not influence reduction
+        var subst1 = subst(Abs(x1, temp, t1),x,s).asInstanceOf[Abs]
+        var subst2 = subst(Abs(x2, temp, t2),x,s).asInstanceOf[Abs]
+        Case(subst(t0, x, s), subst1.x, subst1.y, subst2.x, subst2.y)
+      }
+      case Inr(t0: Term, tpe: Type) =>Inr(subst(t0, x, s),tpe)
+      case Inl(t0: Term, tpe: Type) =>Inl(subst(t0, x, s),tpe)
+      case Fix(t0: Term) =>{
+        Fix(subst(t0, x, s))
+      }
 
       case _ => t
     }
@@ -166,6 +190,8 @@ object SimplyTypedExtended extends  StandardTokenParsers {
     case False => true
     case Abs(v, tp, t0) => true
     case TermPair(t1, t2) => (IsValues(t1) && IsValues(t2))
+    case Inl(t: Term, tpe: Type) if(IsValues(t)) => true
+    case Inr(t: Term, tpe: Type) if(IsValues(t)) => true
     case _ => IsNumbers(t)
   }
   def StepToSucc(t: Term) : Term ={
@@ -251,40 +277,27 @@ object SimplyTypedExtended extends  StandardTokenParsers {
         catch{
           case NoRuleApplies(e) => throw new NoRuleApplies(t)
         }
+
       //project 4
       case Case(t0: Term, x1: String, t1: Term, x2: String, t2: Term) =>{
         t0 match {
           //[x1 → v0] t1
-          case Inl(t0: Term, tpe: Type) => {
-            try{
-              reduce(Inl(t, tpe))
-            }
-            catch{
-              case NoRuleApplies(t) => subst(t1,x1,t0)
-            }
+          case Inl(v0: Term, tpe: Type) =>IsValues(v0) match {
+            case true => subst(t1,x1,v0)
+            case false =>Case(reduce(t0), x1, t1, x2, t2)
           }
-          case Inr(t0: Term, tpe: Type) => {
-            try{
-              reduce(Inr(t0, tpe))
-            }
-            catch{
-              case NoRuleApplies(t) => subst(t2,x2,t0)
-            }
-            }
-          case t => Case(reduce(t), x1, t1, x2, t2)
+          case Inr(v0: Term, tpe: Type) =>IsValues(v0) match {
+            case true => subst(t2, x2, v0)
+            case false => Case(reduce(t0), x1, t1, x2, t2)
+          }
+          case _ => Case(reduce(t0), x1, t1, x2, t2)
         }
       }
       case Inr(t0: Term, tpe: Type) =>Inr(reduce(t0),tpe)
       case Inl(t0: Term, tpe: Type) =>Inl(reduce(t0),tpe)
-      case Fix(t0: Term) =>{
-        try{
-          Fix(reduce(t0))
-        }
-        catch{
-          case NoRuleApplies(t)=> t0 match {
-            case Abs(v1, tp1, t1)=>subst(t1, v1, Fix(t0))
-          }
-        }
+      case Fix(t0: Term) => t0 match{
+        case Abs(x, tp, t2) => subst(t2,x, Fix(t0))
+        case _=> Fix(reduce(t0))
       }
       case _ => {
         throw new NoRuleApplies(t)

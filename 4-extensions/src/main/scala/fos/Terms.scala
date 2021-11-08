@@ -31,6 +31,8 @@ case class Var(name: String) extends Term {
   override def toString() = name
 }
 case class Abs(v: String, tp: Type, t: Term) extends Term {
+  var x = v
+  var y = t
   override def toString() = s"(\\$v: $tp. $t)"
 }
 case class App(t1: Term, t2: Term) extends Term {
