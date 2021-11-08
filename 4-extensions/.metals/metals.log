@@ -60,3 +60,63 @@ WARNING: Unmatched cancel notification for request id 115
 [0m2021.11.08 15:36:41 INFO  time: compiled root-4-extensions in 0.54s[0m
 [0m2021.11.08 15:58:10 INFO  compiling root-4-extensions (1 scala source)[0m
 [0m2021.11.08 15:58:10 INFO  time: compiled root-4-extensions in 0.54s[0m
+Nov 08, 2021 4:24:05 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 301
+Nov 08, 2021 4:24:08 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 307
+[0m2021.11.08 16:24:38 INFO  compiling root-4-extensions (1 scala source)[0m
+[0m2021.11.08 16:24:38 INFO  time: compiled root-4-extensions in 0.54s[0m
+[0m2021.11.08 16:24:43 INFO  compiling root-4-extensions (1 scala source)[0m
+[0m2021.11.08 16:24:43 INFO  time: compiled root-4-extensions in 0.48s[0m
+[0m2021.11.08 16:24:46 INFO  compiling root-4-extensions (1 scala source)[0m
+[0m2021.11.08 16:24:46 INFO  time: compiled root-4-extensions in 0.56s[0m
+[0m2021.11.08 16:24:52 INFO  compiling root-4-extensions (1 scala source)[0m
+[0m2021.11.08 16:24:52 INFO  time: compiled root-4-extensions in 0.53s[0m
+[0m2021.11.08 16:39:26 INFO  compiling root-4-extensions (1 scala source)[0m
+[0m2021.11.08 16:39:27 INFO  time: compiled root-4-extensions in 1.05s[0m
+Exception in thread "pool-4-thread-1" java.util.NoSuchElementException: head of empty String
+	at scala.collection.StringOps$.head$extension(StringOps.scala:1129)
+	at dotty.tools.dotc.semanticdb.Scala3$StringOps$.isJavaIdent(Scala3.scala:171)
+	at scala.meta.internal.pc.SemanticdbSymbols$.addName$1(SemanticdbSymbols.scala:92)
+	at scala.meta.internal.pc.SemanticdbSymbols$.addDescriptor$1(SemanticdbSymbols.scala:127)
+	at scala.meta.internal.pc.SemanticdbSymbols$.addSymName(SemanticdbSymbols.scala:137)
+	at scala.meta.internal.pc.SemanticdbSymbols$.symbolName(SemanticdbSymbols.scala:79)
+	at scala.meta.internal.pc.CompletionProvider.visit$1(CompletionProvider.scala:116)
+	at scala.meta.internal.pc.CompletionProvider.$anonfun$5(CompletionProvider.scala:138)
+	at scala.meta.internal.pc.CompletionProvider.enrichWithSymbolSearch$$anonfun$1(CompletionProvider.scala:70)
+	at scala.collection.immutable.List.map(List.scala:250)
+	at scala.meta.internal.pc.CompletionProvider.enrichWithSymbolSearch(CompletionProvider.scala:70)
+	at scala.meta.internal.pc.CompletionProvider.filterInteresting(CompletionProvider.scala:138)
+	at scala.meta.internal.pc.CompletionProvider.completions(CompletionProvider.scala:44)
+	at scala.meta.internal.pc.ScalaPresentationCompiler.complete$$anonfun$1(ScalaPresentationCompiler.scala:166)
+	at scala.meta.internal.pc.CompilerAccess.withSharedCompiler(CompilerAccess.scala:137)
+	at scala.meta.internal.pc.CompilerAccess.$anonfun$1(CompilerAccess.scala:87)
+	at scala.meta.internal.pc.CompilerAccess.onCompilerJobQueue$$anonfun$1(CompilerAccess.scala:197)
+	at scala.meta.internal.pc.CompilerJobQueue$Job.run(CompilerJobQueue.scala:139)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Nov 08, 2021 4:58:25 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 499
+[0m2021.11.08 16:59:16 INFO  compiling root-4-extensions (1 scala source)[0m
+[0m2021.11.08 16:59:16 INFO  time: compiled root-4-extensions in 0.47s[0m
+[0m2021.11.08 16:59:27 INFO  compiling root-4-extensions (1 scala source)[0m
+[0m2021.11.08 16:59:27 INFO  time: compiled root-4-extensions in 0.46s[0m
+[0m2021.11.08 16:59:29 INFO  compiling root-4-extensions (1 scala source)[0m
+[0m2021.11.08 16:59:29 INFO  time: compiled root-4-extensions in 0.35s[0m
+[0m2021.11.08 17:00:15 INFO  compiling root-4-extensions (1 scala source)[0m
+[0m2021.11.08 17:00:15 INFO  time: compiled root-4-extensions in 0.16s[0m
+[0m2021.11.08 17:00:23 INFO  compiling root-4-extensions (1 scala source)[0m
+[0m2021.11.08 17:00:23 INFO  time: compiled root-4-extensions in 0.46s[0m
+[0m2021.11.08 17:00:49 INFO  compiling root-4-extensions (1 scala source)[0m
+[0m2021.11.08 17:00:49 INFO  time: compiled root-4-extensions in 0.42s[0m
+[0m2021.11.08 17:00:56 INFO  compiling root-4-extensions (1 scala source)[0m
+[0m2021.11.08 17:00:56 INFO  time: compiled root-4-extensions in 0.49s[0m
+[0m2021.11.08 17:01:02 INFO  compiling root-4-extensions (1 scala source)[0m
+[0m2021.11.08 17:01:02 INFO  time: compiled root-4-extensions in 0.48s[0m
+[0m2021.11.08 17:01:05 INFO  compiling root-4-extensions (1 scala source)[0m
+[0m2021.11.08 17:01:05 INFO  time: compiled root-4-extensions in 0.32s[0m
+[0m2021.11.08 17:01:08 INFO  compiling root-4-extensions (1 scala source)[0m
+[0m2021.11.08 17:01:08 INFO  time: compiled root-4-extensions in 0.39s[0m
+[0m2021.11.08 17:05:05 INFO  compiling root-4-extensions (1 scala source)[0m
+[0m2021.11.08 17:05:05 INFO  time: compiled root-4-extensions in 0.32s[0m

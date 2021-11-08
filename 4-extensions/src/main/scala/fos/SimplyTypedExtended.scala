@@ -80,9 +80,13 @@ object SimplyTypedExtended extends  StandardTokenParsers {
     case t ~ tList => tList.foldLeft(t)(App(_,_))
   }
 
-  def pairTypeTerm: Parser[Type] = repsep(simpleTypeTerm, "*") ^^ {case tpList => tpList.reduceRight(TypePair(_,_))}
-
   def funcTypeTerm: Parser[Type] = repsep(pairTypeTerm, "->") ^^ {case tyList => tyList.reduceRight(TypeFun(_,_))}
+
+  def pairTypeTerm: Parser[Type] = (
+    simpleTypeTerm ~ "*" ~ pairTypeTerm ^^ {case stp ~ _ ~ ptp => TypePair(stp,ptp)}
+    | simpleTypeTerm ~ "+" ~ pairTypeTerm ^^ {case stp ~ _ ~ ptp => TypeSum(stp,ptp)}
+    | simpleTypeTerm
+    )
 
   def simpleTypeTerm: Parser[Type] = (
   "Bool" ^^ {case "Bool" => TypeBool}
