@@ -72,3 +72,4 @@
 [0m[[0m[33mwarn[0m] [0m[0m11 warnings found[0m
 [0m[[0m[32msuccess[0m] [0m[0mTotal time: 7 s, completed Nov 8, 2021 4:40:20 PM[0m
 [0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0mForcing garbage collection...[0m

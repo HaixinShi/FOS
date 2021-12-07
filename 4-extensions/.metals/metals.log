@@ -120,3 +120,8 @@ WARNING: Unmatched cancel notification for request id 499
 [0m2021.11.08 17:01:08 INFO  time: compiled root-4-extensions in 0.39s[0m
 [0m2021.11.08 17:05:05 INFO  compiling root-4-extensions (1 scala source)[0m
 [0m2021.11.08 17:05:05 INFO  time: compiled root-4-extensions in 0.32s[0m
+[0m2021.11.08 17:14:51 INFO  shutting down Metals[0m
+[0m2021.11.08 17:14:51 INFO  Shut down connection with build server.[0m
+[0m2021.11.08 17:14:51 INFO  Shut down connection with build server.[0m
+No more data in the client stdin, exiting...
+No more data in the client stdin, exiting...

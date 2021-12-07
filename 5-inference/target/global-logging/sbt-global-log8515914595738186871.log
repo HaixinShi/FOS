@@ -1,0 +1,43 @@
+[debug] > Exec(early(addDefaultCommands), None, None)
+[debug] > Exec(addDefaultCommands, None, None)
+[debug] > Exec(early(initialize), None, None)
+[debug] > Exec(initialize, None, None)
+[debug] > Exec(boot, None, None)
+[debug] > Exec(writeSbtVersion, None, None)
+[debug] > Exec(reload, None, None)
+[debug] > Exec(sbtStashOnFailure, None, None)
+[debug] > Exec(onFailure loadFailed, None, None)
+[debug] > Exec(loadp, None, None)
+[info] welcome to sbt 1.5.5 (AdoptOpenJDK Java 1.8.0_292)
+[debug] Load.defaultLoad until apply took 669.1081ms
+[debug]                 Load.loadUnit: plugins took 170.5985ms
+[debug]                 Load.loadUnit: defsScala took 1.6238ms
+[debug] [Loading] Scanning directory /home/zhiyew/projects/fos/FOS/5-inference/project/project
+[debug]                   Load.loadUnit: mkEval took 18.8921ms
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in /home/zhiyew/projects/fos/FOS/5-inference/project/project, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 31.2492 ms
+[info] loading settings for project root-5-inference-build-build from metals.sbt ...
+[debug]                     Load.resolveProject(root-5-inference-build-build) took 100.2507ms
+[debug]                   Load.loadTransitive: finalizeProject(Project(id root-5-inference-build-build, base: /home/zhiyew/projects/fos/FOS/5-inference/project/project, plugins: List(<none>))) took 148.0508ms
+[debug] [Loading] Done in /home/zhiyew/projects/fos/FOS/5-inference/project/project, returning: (root-5-inference-build-build)
+[debug]                 Load.loadUnit: loadedProjectsRaw took 4360.2144ms
+[debug]                 Load.loadUnit: cleanEvalClasses took 14.2435ms
+[debug]               Load.loadUnit(file:/home/zhiyew/projects/fos/FOS/5-inference/project/project/, ...) took 4560.2472ms
+[debug]             Load.apply: load took 4785.3022ms
+[debug]             Load.apply: resolveProjects took 14.9162ms
+[debug]             Load.apply: finalTransforms took 151.096ms
+[debug]             Load.apply: config.delegates took 18.3658ms

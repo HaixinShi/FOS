@@ -1,0 +1,10 @@
+[0m2021.12.07 16:10:29 INFO  Started: Metals version 0.10.9 in workspace '/home/zhiyew/projects/fos/FOS/5-inference' for client Visual Studio Code 1.62.3.[0m
+[0m2021.12.07 16:10:29 INFO  time: initialize in 0.43s[0m
+[0m2021.12.07 16:10:30 WARN  Build server is not auto-connectable.[0m
+[0m2021.12.07 16:10:33 INFO  running '/home/zhiyew/.cache/coursier/jvm/adopt@1.8.0-292/bin/java -Djline.terminal=jline.UnsupportedTerminal -Dsbt.log.noformat=true -Dfile.encoding=UTF-8 -jar /tmp/metals4838932715957085366/sbt-launch.jar -Dbloop.export-jar-classifiers=sources bloopInstall'[0m
+[0m2021.12.07 16:10:33 WARN  no build target for: /home/zhiyew/projects/fos/FOS/5-inference/project/metals.sbt[0m
+[0m2021.12.07 16:10:33 WARN  no build target for: /home/zhiyew/projects/fos/FOS/5-inference/project/project/metals.sbt[0m
+[0m2021.12.07 16:10:33 INFO  skipping build import with status 'Started'[0m
+[0m2021.12.07 16:10:35 INFO  [info] welcome to sbt 1.5.5 (AdoptOpenJDK Java 1.8.0_292)[0m
+[0m2021.12.07 16:10:40 INFO  no build target: using presentation compiler with only scala-library: 3.1.0[0m
+[0m2021.12.07 16:10:41 INFO  [info] loading settings for project root-5-inference-build-build from metals.sbt ...[0m
