@@ -1,0 +1,4 @@
+[debug] [root-5-inference-build] Classpath dependencies List()
+[debug] [root-5-inference-build] Dependencies from configurations List()
+[debug] Bloop wrote the configuration of project 'root-5-inference-build' to '/home/zhiyew/projects/fos/FOS/5-inference/project/.bloop/root-5-inference-build.json'
+[success] Generated .bloop/root-5-inference-build.json

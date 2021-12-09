@@ -8,3 +8,294 @@
 [0m2021.12.07 16:10:35 INFO  [info] welcome to sbt 1.5.5 (AdoptOpenJDK Java 1.8.0_292)[0m
 [0m2021.12.07 16:10:40 INFO  no build target: using presentation compiler with only scala-library: 3.1.0[0m
 [0m2021.12.07 16:10:41 INFO  [info] loading settings for project root-5-inference-build-build from metals.sbt ...[0m
+[0m2021.12.07 16:10:42 INFO  [info] loading project definition from /home/zhiyew/projects/fos/FOS/5-inference/project/project[0m
+[0m2021.12.07 16:10:46 INFO  [info] loading settings for project root-5-inference-build from metals.sbt ...[0m
+[0m2021.12.07 16:10:46 INFO  [info] loading project definition from /home/zhiyew/projects/fos/FOS/5-inference/project[0m
+[0m2021.12.07 16:10:49 INFO  [success] Generated .bloop/root-5-inference-build.json[0m
+[0m2021.12.07 16:10:49 INFO  [success] Total time: 3 s, completed Dec 7, 2021 4:10:49 PM[0m
+[0m2021.12.07 16:10:50 INFO  [info] loading settings for project root-5-inference from build.sbt ...[0m
+[0m2021.12.07 16:10:50 INFO  [info] set current project to root-5-inference (in build file:/home/zhiyew/projects/fos/FOS/5-inference/)[0m
+[0m2021.12.07 16:10:50 INFO  [success] Generated .bloop/root-5-inference.json[0m
+[0m2021.12.07 16:10:50 INFO  [success] Generated .bloop/root-5-inference-test.json[0m
+[0m2021.12.07 16:10:50 INFO  [success] Total time: 1 s, completed Dec 7, 2021 4:10:51 PM[0m
+[0m2021.12.07 16:10:52 INFO  time: ran 'sbt bloopInstall' in 18s[0m
+[0m2021.12.07 16:10:52 INFO  Attempting to connect to the build server...[0m
+Starting the bsp launcher for bloop...
+Opening a bsp server connection with 'bsp --protocol local --socket /tmp/bsp-launcher8729172032238365057/bsp.socket'...
+Waiting for the bsp connection to come up...
+Waiting for the bsp connection to come up...
+Waiting for the bsp connection to come up...
+Waiting for the bsp connection to come up...
+Waiting for the bsp connection to come up...
+No server running at 127.0.0.1:8212, let's fire one...
+Resolving ch.epfl.scala:bloop-frontend_2.12:1.4.11...
+Starting bloop server at 127.0.0.1:8212...
+Attempting a connection to the server...
+Attempting a connection to the server...
+Attempting a connection to the server...
+Attempting a connection to the server...
+Attempting a connection to the server...
+[0m[32m[D][0m Loading 2 projects from '/home/zhiyew/projects/fos/FOS/5-inference/.bloop'...
+[0m[32m[D][0m Loading project from '/home/zhiyew/projects/fos/FOS/5-inference/.bloop/root-5-inference.json'
+[0m[32m[D][0m Loading project from '/home/zhiyew/projects/fos/FOS/5-inference/.bloop/root-5-inference-test.json'
+[0m[32m[D][0m Cache miss for scala instance org.scala-lang:scala-compiler:3.0.2.
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.2.3/jackson-annotations-2.2.3.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.9.8/jackson-core-2.9.8.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.2.3/jackson-databind-2.2.3.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.9.8/jackson-dataformat-yaml-2.9.8.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/com/google/protobuf/protobuf-java/3.7.0/protobuf-java-3.7.0.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-anchorlink/0.42.12/flexmark-ext-anchorlink-0.42.12.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-autolink/0.42.12/flexmark-ext-autolink-0.42.12.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-emoji/0.42.12/flexmark-ext-emoji-0.42.12.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-gfm-strikethrough/0.42.12/flexmark-ext-gfm-strikethrough-0.42.12.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-gfm-tables/0.42.12/flexmark-ext-gfm-tables-0.42.12.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-gfm-tasklist/0.42.12/flexmark-ext-gfm-tasklist-0.42.12.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-ins/0.42.12/flexmark-ext-ins-0.42.12.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-superscript/0.42.12/flexmark-ext-superscript-0.42.12.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-tables/0.42.12/flexmark-ext-tables-0.42.12.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-wikilink/0.42.12/flexmark-ext-wikilink-0.42.12.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-ext-yaml-front-matter/0.42.12/flexmark-ext-yaml-front-matter-0.42.12.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-formatter/0.42.12/flexmark-formatter-0.42.12.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-html-parser/0.42.12/flexmark-html-parser-0.42.12.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-jira-converter/0.42.12/flexmark-jira-converter-0.42.12.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark-util/0.42.12/flexmark-util-0.42.12.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/com/vladsch/flexmark/flexmark/0.42.12/flexmark-0.42.12.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/net/java/dev/jna/jna/5.3.1/jna-5.3.1.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/nl/big-o/liqp/0.6.7/liqp-0.6.7.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/org/antlr/ST4/4.0.7/ST4-4.0.7.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/org/antlr/antlr-runtime/3.5.1/antlr-runtime-3.5.1.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/org/antlr/antlr/3.5.1/antlr-3.5.1.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jline/jline-reader/3.19.0/jline-reader-3.19.0.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jline/jline-terminal-jna/3.19.0/jline-terminal-jna-3.19.0.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jline/jline-terminal/3.19.0/jline-terminal-3.19.0.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jsoup/jsoup/1.13.1/jsoup-1.13.1.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/org/nibor/autolink/autolink/0.6.0/autolink-0.6.0.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-asm/9.1.0-scala-1/scala-asm-9.1.0-scala-1.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.6/scala-library-2.13.6.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-compiler_3/3.0.2/scala3-compiler_3-3.0.2.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-interfaces/3.0.2/scala3-interfaces-3.0.2.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.0.2/scala3-library_3-3.0.2.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-tasty-inspector_3/3.0.2/scala3-tasty-inspector_3-3.0.2.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scaladoc_3/3.0.2/scaladoc_3-3.0.2.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/tasty-core_3/3.0.2/tasty-core_3-3.0.2.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/compiler-interface/1.3.5/compiler-interface-1.3.5.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/util-interface/1.3.0/util-interface-1.3.0.jar
+[0m[32m[D][0m   => /home/zhiyew/.cache/coursier/v1/https/repo1.maven.org/maven2/org/yaml/snakeyaml/1.23/snakeyaml-1.23.jar
+[0m[32m[D][0m Missing analysis file for project 'root-5-inference'
+[0m[32m[D][0m Missing analysis file for project 'root-5-inference-test'
+[0m[32m[D][0m Waiting for a connection at local:///tmp/bsp-launcher8729172032238365057/bsp.socket...
+The server is listening for incoming connections at local:///tmp/bsp-launcher8729172032238365057/bsp.socket...
+Starting thread that pumps stdin and redirects it to the bsp server...
+Starting thread that pumps server stdout and redirects it to the client stdout...
+[0m2021.12.07 16:10:56 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/zhiyew/.cache/metals/bsp.trace.json[0m
+[0m2021.12.07 16:10:56 INFO  Attempting to connect to the build server...[0m
+Starting the bsp launcher for bloop...
+Opening a bsp server connection with 'bsp --protocol local --socket /tmp/bsp-launcher7170357578895905568/bsp.socket'...
+Waiting for the bsp connection to come up...
+[0m[32m[D][0m Loading workspace settings from bloop.settings.json
+[0m[32m[D][0m Waiting for a connection at local:///tmp/bsp-launcher7170357578895905568/bsp.socket...
+The server is listening for incoming connections at local:///tmp/bsp-launcher7170357578895905568/bsp.socket...
+Starting thread that pumps stdin and redirects it to the bsp server...
+Starting thread that pumps server stdout and redirects it to the client stdout...
+[0m2021.12.07 16:10:57 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/zhiyew/.cache/metals/bsp.trace.json[0m
+[0m2021.12.07 16:10:57 INFO  time: Connected to build server in 4.99s[0m
+[0m2021.12.07 16:10:57 INFO  Connected to Build server: Bloop v1.4.11[0m
+[0m2021.12.07 16:10:57 INFO  time: Imported build in 0.1s[0m
+[0m2021.12.07 16:11:01 INFO  time: indexed workspace in 4.29s[0m
+[0m2021.12.07 16:11:02 INFO  no build target: using presentation compiler with only scala-library: 3.0.2[0m
+[0m2021.12.07 16:11:19 INFO  compiling root-5-inference (5 scala sources)[0m
+Dec 07, 2021 4:11:23 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 6
+Dec 07, 2021 4:11:26 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 11
+[0m2021.12.07 16:11:27 INFO  time: compiled root-5-inference in 7.4s[0m
+Dec 07, 2021 4:11:27 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 12
+Dec 07, 2021 4:11:32 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 19
+Dec 07, 2021 4:11:40 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 29
+[0m2021.12.07 16:16:29 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 16:16:29 INFO  time: compiled root-5-inference in 0.17s[0m
+[0m2021.12.07 16:16:47 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 16:16:47 INFO  time: compiled root-5-inference in 0.91s[0m
+[0m2021.12.07 16:16:49 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 16:16:49 INFO  time: compiled root-5-inference in 0.6s[0m
+[0m2021.12.07 16:17:57 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 16:17:57 INFO  time: compiled root-5-inference in 0.7s[0m
+[0m2021.12.07 16:18:00 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 16:18:00 INFO  time: compiled root-5-inference in 0.55s[0m
+Dec 07, 2021 4:18:05 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 195
+[0m2021.12.07 16:18:54 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 16:18:54 INFO  time: compiled root-5-inference in 0.48s[0m
+Dec 07, 2021 4:19:01 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 335
+[0m2021.12.07 16:35:15 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 16:35:15 INFO  time: compiled root-5-inference in 0.5s[0m
+[0m2021.12.07 16:35:17 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 16:35:17 INFO  time: compiled root-5-inference in 0.38s[0m
+[0m2021.12.07 16:41:29 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 16:41:29 INFO  time: compiled root-5-inference in 0.42s[0m
+[0m2021.12.07 16:58:16 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 16:58:16 INFO  time: compiled root-5-inference in 0.41s[0m
+[0m2021.12.07 17:13:59 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 17:13:59 INFO  time: compiled root-5-inference in 0.38s[0m
+[0m2021.12.07 17:14:11 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 17:14:11 INFO  time: compiled root-5-inference in 0.31s[0m
+[0m2021.12.07 17:14:49 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 17:14:49 INFO  time: compiled root-5-inference in 96ms[0m
+Dec 07, 2021 5:14:50 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1236
+[0m2021.12.07 17:14:55 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 17:14:55 INFO  time: compiled root-5-inference in 99ms[0m
+[0m2021.12.07 17:15:06 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 17:15:06 INFO  time: compiled root-5-inference in 0.34s[0m
+[0m2021.12.07 17:15:11 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 17:15:11 INFO  time: compiled root-5-inference in 0.31s[0m
+[0m2021.12.07 17:15:17 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 17:15:17 INFO  time: compiled root-5-inference in 0.3s[0m
+[0m2021.12.07 17:15:38 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 17:15:38 INFO  time: compiled root-5-inference in 0.32s[0m
+[0m2021.12.07 17:16:06 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 17:16:06 INFO  time: compiled root-5-inference in 0.26s[0m
+[0m2021.12.07 17:16:08 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 17:16:08 INFO  time: compiled root-5-inference in 0.27s[0m
+[0m2021.12.07 17:19:15 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 17:19:15 INFO  time: compiled root-5-inference in 0.26s[0m
+[0m2021.12.07 17:19:20 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 17:19:20 INFO  time: compiled root-5-inference in 0.25s[0m
+[0m2021.12.07 17:21:31 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 17:21:31 INFO  time: compiled root-5-inference in 0.26s[0m
+[0m2021.12.07 17:21:35 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 17:21:35 INFO  time: compiled root-5-inference in 0.26s[0m
+[0m2021.12.07 17:22:18 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 17:22:18 INFO  time: compiled root-5-inference in 0.26s[0m
+[0m2021.12.07 17:30:34 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 17:30:34 INFO  time: compiled root-5-inference in 0.29s[0m
+[0m2021.12.07 17:31:15 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 17:31:15 INFO  time: compiled root-5-inference in 0.23s[0m
+[0m2021.12.07 17:31:17 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 17:31:17 INFO  time: compiled root-5-inference in 0.22s[0m
+[0m2021.12.07 17:35:33 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 17:35:33 INFO  time: compiled root-5-inference in 0.28s[0m
+[0m2021.12.07 17:38:05 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 17:38:05 INFO  time: compiled root-5-inference in 0.25s[0m
+[0m2021.12.07 17:38:12 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 17:38:12 INFO  time: compiled root-5-inference in 0.21s[0m
+Dec 07, 2021 5:39:20 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1939
+Dec 07, 2021 5:39:22 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1944
+[0m2021.12.07 17:39:32 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 17:39:32 INFO  time: compiled root-5-inference in 0.32s[0m
+Dec 07, 2021 5:39:35 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1956
+[0m2021.12.07 17:39:51 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 17:39:51 INFO  time: compiled root-5-inference in 0.23s[0m
+[0m2021.12.07 17:43:03 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 17:43:03 INFO  time: compiled root-5-inference in 0.27s[0m
+[0m2021.12.07 20:18:57 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 20:18:57 INFO  time: compiled root-5-inference in 0.25s[0m
+[0m2021.12.07 20:19:34 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 20:19:34 INFO  time: compiled root-5-inference in 0.29s[0m
+[0m2021.12.07 20:19:42 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 20:19:42 INFO  time: compiled root-5-inference in 0.22s[0m
+[0m2021.12.07 20:19:45 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 20:19:45 INFO  time: compiled root-5-inference in 0.25s[0m
+[0m2021.12.07 20:20:01 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 20:20:01 INFO  time: compiled root-5-inference in 0.23s[0m
+[0m2021.12.07 20:21:52 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 20:21:52 INFO  time: compiled root-5-inference in 71ms[0m
+[0m2021.12.07 20:29:17 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 20:29:17 INFO  time: compiled root-5-inference in 0.28s[0m
+[0m2021.12.07 20:29:34 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 20:29:34 INFO  time: compiled root-5-inference in 0.24s[0m
+[0m2021.12.07 20:30:14 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 20:30:14 INFO  time: compiled root-5-inference in 0.26s[0m
+[0m2021.12.07 20:30:17 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 20:30:17 INFO  time: compiled root-5-inference in 85ms[0m
+[0m2021.12.07 20:34:47 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 20:34:47 INFO  time: compiled root-5-inference in 0.21s[0m
+[0m2021.12.07 20:34:55 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 20:34:55 INFO  time: compiled root-5-inference in 0.27s[0m
+[0m2021.12.07 20:35:00 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 20:35:00 INFO  time: compiled root-5-inference in 0.19s[0m
+[0m2021.12.07 20:35:41 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 20:35:41 INFO  time: compiled root-5-inference in 0.23s[0m
+[0m2021.12.07 21:45:49 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 21:45:49 INFO  time: compiled root-5-inference in 0.29s[0m
+[0m2021.12.07 21:46:14 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 21:46:14 INFO  time: compiled root-5-inference in 0.1s[0m
+[0m2021.12.07 21:46:15 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 21:46:15 INFO  time: compiled root-5-inference in 94ms[0m
+[0m2021.12.07 21:46:19 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 21:46:19 INFO  time: compiled root-5-inference in 79ms[0m
+[0m2021.12.07 21:46:32 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 21:46:32 INFO  time: compiled root-5-inference in 0.12s[0m
+[0m2021.12.07 21:46:32 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 21:46:32 INFO  time: compiled root-5-inference in 0.11s[0m
+[0m2021.12.07 21:46:32 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 21:46:33 INFO  time: compiled root-5-inference in 0.3s[0m
+[0m2021.12.07 21:48:03 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 21:48:03 INFO  time: compiled root-5-inference in 77ms[0m
+[0m2021.12.07 21:48:15 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 21:48:15 INFO  time: compiled root-5-inference in 0.26s[0m
+[0m2021.12.07 21:48:29 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 21:48:29 INFO  time: compiled root-5-inference in 0.23s[0m
+[0m2021.12.07 21:48:31 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 21:48:31 INFO  time: compiled root-5-inference in 0.23s[0m
+[0m2021.12.07 21:49:23 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 21:49:23 INFO  time: compiled root-5-inference in 0.22s[0m
+[0m2021.12.07 21:55:35 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 21:55:35 INFO  time: compiled root-5-inference in 0.3s[0m
+[0m2021.12.07 21:55:35 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 21:55:35 INFO  time: compiled root-5-inference in 0.29s[0m
+[0m2021.12.07 21:56:08 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 21:56:08 INFO  time: compiled root-5-inference in 0.24s[0m
+[0m2021.12.07 21:56:14 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 21:56:14 INFO  time: compiled root-5-inference in 0.23s[0m
+Dec 07, 2021 10:11:57 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3489
+Dec 07, 2021 10:12:03 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3495
+Dec 07, 2021 10:14:21 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3502
+[0m2021.12.07 22:14:24 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.07 22:14:24 INFO  time: compiled root-5-inference in 0.22s[0m
+[0m2021.12.08 10:31:26 INFO  compiling root-5-inference (1 scala source)[0m
+[0m2021.12.08 10:31:26 INFO  time: compiled root-5-inference in 0.24s[0m
+Dec 08, 2021 11:42:13 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3948
+Dec 08, 2021 11:42:16 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3953
+Dec 08, 2021 11:42:32 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3961
+Dec 08, 2021 12:19:36 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 4975
+Dec 08, 2021 12:19:40 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 4982
+Exception in thread "pool-5-thread-1" java.lang.Error: java.lang.InterruptedException
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1155)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.InterruptedException
+	at scala.meta.internal.metals.FutureCancelToken.checkCanceled(FutureCancelToken.scala:29)
+	at scala.meta.internal.pc.CompilerAccess.onCompilerJobQueue$$anonfun$1(CompilerAccess.scala:195)
+	at scala.meta.internal.pc.CompilerJobQueue$Job.run(CompilerJobQueue.scala:139)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	... 2 more
+Dec 09, 2021 1:50:48 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 6013
+Dec 09, 2021 1:50:48 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 6014
+Dec 09, 2021 1:50:53 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 6024
+Dec 09, 2021 1:50:59 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 6029
+Dec 09, 2021 1:51:09 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 6037
+Dec 09, 2021 1:52:10 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 6067
+[0m2021.12.09 14:00:31 INFO  shutting down Metals[0m
+No more data in the client stdin, exiting...
