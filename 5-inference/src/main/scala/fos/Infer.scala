@@ -15,15 +15,15 @@ object Infer {
       return TypeVar("Type"+num)
     }
 
-  def getAbsResult(env: Env, t: Term, str: String, tmp:TypeVar ):(Type, Constraint) = {
-    val (ty,con) = collect((str,TypeScheme(Nil,tmp)) ++ env,t)
+  def getAbsResult(env: Env, t: Term, str: String, tmp:Type ):(Type, List[Constraint]) = {
+    val (ty,con) = collect( env :+ (str,TypeScheme(Nil,tmp)), t)
     return (FunType(tmp,ty), con)
   }
 
-  def getAppResult(env: Env, t1: Term, t2: Term, tmp:TypeVar):(Type, Constraint) = {
+  def getAppResult(env: Env, t1: Term, t2: Term, tmp:Type):(Type, List[Constraint]) = {
     val (ty1,con1) = collect(env, t1)
     val (ty2,con2) = collect(env, t2)
-    return (tmp, con1 ++ con2 ++ List((ty1, FunType(ty2,type1))))
+    return (tmp, con1 ++ con2 ++ List((ty1, FunType(ty2,tmp))))
   }
 
   def collect(env: Env, t: Term): (Type, List[Constraint]) = t match{
@@ -53,7 +53,7 @@ object Infer {
     }
 
     case Abs(str, tp, t) => tp match{
-      case EmptyTypeTree => getAbsResult(env, t, str, fresh())
+      case EmptyTypeTree() => getAbsResult(env, t, str, fresh())
       case _=> getAbsResult(env, t, str, tp.tpe)
     }
 

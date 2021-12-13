@@ -1,0 +1,44 @@
+[0m[[0m[33mwarn[0m] [0m[0m[33m-- [E029] Pattern Match Exhaustivity Warning: /home/zhiyew/projects/fos/FOS/5-inference/src/main/scala/fos/Parser.scala:35:27 [0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m35 |[0m    | [31m"succ"[0m ~ term   ^^ { [33mcase[0m [31m"succ"[0m ~ t => Succ(t) }[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |                           [33m^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |                           [33mmatch[0m may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |                           It would fail on pattern case: ~(_, _)[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m-- [E029] Pattern Match Exhaustivity Warning: /home/zhiyew/projects/fos/FOS/5-inference/src/main/scala/fos/Parser.scala:36:27 [0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m36 |[0m    | [31m"pred"[0m ~ term   ^^ { [33mcase[0m [31m"pred"[0m ~ t => Pred(t) }[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |                           [33m^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |                           [33mmatch[0m may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |                           It would fail on pattern case: ~(_, _)[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m-- [E029] Pattern Match Exhaustivity Warning: /home/zhiyew/projects/fos/FOS/5-inference/src/main/scala/fos/Parser.scala:37:27 [0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m37 |[0m    | [31m"iszero"[0m ~ term ^^ { [33mcase[0m [31m"iszero"[0m ~ t => IsZero(t) }[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |                           [33m^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |                           [33mmatch[0m may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |                           It would fail on pattern case: ~(_, _)[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m-- [E029] Pattern Match Exhaustivity Warning: /home/zhiyew/projects/fos/FOS/5-inference/src/main/scala/fos/Parser.scala:39:8 [0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m39 |[0m        [33mcase[0m [31m"if"[0m ~ t1 ~ [31m"then"[0m ~ t2 ~ [31m"else"[0m ~ t3 => If(t1, t2, t3)[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |        [33m^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |        [33mmatch[0m may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |        It would fail on pattern case: ~(~(_, _), _)[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m-- [E029] Pattern Match Exhaustivity Warning: /home/zhiyew/projects/fos/FOS/5-inference/src/main/scala/fos/Parser.scala:43:6 [0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m43 |[0m      [33mcase[0m [31m"\\"[0m ~ x ~ Some([31m":"[0m ~ tp) ~ [31m"."[0m ~ t => Abs(x, tp, t)[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |      [33m^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |      [33mmatch[0m may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |      It would fail on pattern case: ~(~(_, _), _)[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m-- [E029] Pattern Match Exhaustivity Warning: /home/zhiyew/projects/fos/FOS/5-inference/src/main/scala/fos/Parser.scala:48:6 [0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m48 |[0m      [33mcase[0m [31m"let"[0m ~ x ~ Some([31m":"[0m ~ tp) ~ [31m"="[0m ~ t1 ~ [31m"in"[0m ~ t2 => Let(x, tp, t1, t2)[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |      [33m^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |      [33mmatch[0m may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |      It would fail on pattern case: ~(~(_, _), _)[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m-- [E029] Pattern Match Exhaustivity Warning: /home/zhiyew/projects/fos/FOS/5-inference/src/main/scala/fos/Parser.scala:58:8 [0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m58 |[0m        [33mcase[0m t1 ~ Some([31m"->"[0m ~ t2) => FunTypeTree(t1, t2)[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |        [33m^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |        [33mmatch[0m may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |[0m
+[0m[[0m[33mwarn[0m] [0m[0m   |        It would fail on pattern case: ~(_, Some(_))[0m
+[0m[[0m[33mwarn[0m] [0m[0m7 warnings found[0m
+[0m[[0m[33mwarn[0m] [0m[0m7 warnings found[0m
