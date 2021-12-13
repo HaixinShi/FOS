@@ -10,9 +10,15 @@ object Launcher {
     phrase(term)(tokens) match {
       case Success(term, _) =>
         try {
+
           val (tpe, c) = Infer.collect(Nil, term)
           val sub = Infer.unify(c)
           println("typed: " + sub(tpe))
+          /*
+          val n = NatType
+          println(n.getClass)
+          val b = BoolType
+          println(b.getClass)*/
         } catch {
           case tperror: Exception => println("type error: " + tperror.getMessage)
         }
