@@ -79,12 +79,11 @@ object Infer {
       case true =>ty => ty
       case false => {
         val (s,t) = c.head
-        s.getClass == t.getClass match {
+        s == t match {
           case true => unify(c.tail)
           case false =>{
             (s.isInstanceOf[TypeVar],t.isInstanceOf[TypeVar]) match {
-              case (true, true) => unify(c.tail)
-              case (true, false) =>{
+              case (true, _) =>{
                 isAppear(s,t) match{
                   case true => throw new TypeError("TypeError")
                   case false => {
@@ -95,10 +94,15 @@ object Infer {
                   }
                 }
               }
-              case (false, true) =>{
+              case (_, true) =>{
                 //TODO:the same as before
                 //Map()
-                unify(c.tail.map{x => (substitution(x._1, t, s),substitution(x._2, t, s))}).compose { ty => substitution(ty, t, s)}
+                isAppear(t,s) match{
+                  case true => throw new TypeError("TypeError")
+                  case false => {
+                    unify(c.tail.map{x => (substitution(x._1, t, s),substitution(x._2, t, s))}).compose { ty => substitution(ty, t, s)}
+                  }
+                }
               }
               case (false, false) =>{
                 (s,t) match {
@@ -110,6 +114,7 @@ object Infer {
                   case _ => throw new TypeError("TypeError")
                 }
               }
+              case _ =>throw new TypeError("TypeError")
             }
           }
         }
@@ -128,4 +133,6 @@ object Infer {
       }
     }
   }
+
+
 }
