@@ -23,7 +23,7 @@ object Infer {
   def getAppResult(env: Env, t1: Term, t2: Term, tmp:Type):(Type, List[Constraint]) = {
     val (ty1,con1) = collect(env, t1)
     val (ty2,con2) = collect(env, t2)
-    return (tmp, con1 ++ con2 ++ List((ty1, FunType(ty2,tmp))))
+    return (tmp, con1 ++: con2 :+ (ty1, FunType(ty2,tmp)))
   }
 
   def collect(env: Env, t: Term): (Type, List[Constraint]) = t match{
@@ -44,7 +44,7 @@ object Infer {
     }
 
     case If(cond, t1, t2) =>
-      (collect(env, t2)._1, collect(env, cond)._2 ++ collect(env, t1)._2 ++ collect(env, t2)._2 ++ List((collect(env, cond)._1, BoolType),(collect(env, t1)._1,collect(env, t2)._1))  )
+      (collect(env, t2)._1, (collect(env, cond)._1, BoolType) :: (collect(env, t1)._1, collect(env, t2)._1) :: collect(env, cond)._2 ++: collect(env, t1)._2 ++: collect(env, t2)._2)
 
 
     case Var(s) => ((env.indexWhere(_._1 == s)) != -1) match{
