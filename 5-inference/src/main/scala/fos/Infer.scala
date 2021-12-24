@@ -17,7 +17,7 @@ object Infer {
   }
 
   def getAbsResult(env: Env, t: Term, str: String, tmp:Type ):(Type, List[Constraint]) = {
-    val (ty,con) = collect( env :+ (str,TypeScheme(Nil,tmp)), t)
+    val (ty,con) = collect((str,TypeScheme(List(),tmp))::env, t)
     return (FunType(tmp,ty), con)
   }
 
@@ -34,8 +34,6 @@ object Infer {
     var new_env = env.map(pair => (pair._1, TypeScheme(pair._2.params, s_to_t(pair._2.tp)))) // apply the substitution to the current env
     //generalize some type variables inside T and obtain a type scheme.
     val gen_T = ((getTypeVar(new_t).filterNot(tv => new_env.exists(e => isAppear(e._2.tp, tv))))).distinct   // get the remaining typeVar in T
-//    var gen_T = getTypeVar(new_t, new_env).distinct
-    //    gen_T = removeDupInEnv(gen_T, new_env)    // not generalize variables mentioned in env
     val x_tpsch = TypeScheme(gen_T, new_t)
     new_env = new_env :+ (str, x_tpsch)
     return collect(new_env, t)
@@ -47,32 +45,21 @@ object Infer {
     case _ => Nil
   }
 
-//  def removeDupInEnv(l_var: List[TypeVar], env: Env): List[TypeVar] = {
-//    var res = ListBuffer[TypeVar] ()
-//    for (v <- l_var) {
-//      val existed = env.exists(e => (getTypeVar(e._2.tp).exists(tv => {tv.name == v.name})))
-//      if (!existed) {
-//        res += v
-//      }
-//    }
-//    return res.toList
-//  }
-
   def collect(env: Env, t: Term): (Type, List[Constraint]) = t match{
     case True => (BoolType, List())
     case False => (BoolType, List())
     case Zero => (NatType, List())
 
     case Pred(t0) => collect(env, t0) match {
-      case (tp, con) => (NatType, con :+ (tp, NatType))
+      case (tp, con) => (NatType, (tp, NatType) +: con)
     }
 
     case Succ(t0) => collect(env, t0) match {
-      case (tp, con) => (NatType, con :+ (tp, NatType))
+      case (tp, con) => (NatType, (tp, NatType) +: con)
     }
 
     case IsZero(t0) => collect(env, t0) match {
-      case (tp, con) =>  (BoolType, con :+ (tp, NatType))
+      case (tp, con) =>  (BoolType, (tp, NatType) +: con)
     }
 
     case If(cond, t1, t2) =>
@@ -93,7 +80,7 @@ object Infer {
 
     case Abs(str, tp, t) => tp match{
       case EmptyTypeTree() => getAbsResult(env, t, str, fresh())
-      case _=> getAbsResult(env, t, str, tp.tpe)
+      case _ => getAbsResult(env, t, str, tp.tpe)
     }
 
     case App(t1,t2) => getAppResult(env, t1, t2, fresh())
