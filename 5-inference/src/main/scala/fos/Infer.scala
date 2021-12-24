@@ -1,4 +1,5 @@
 package fos
+import scala.collection.mutable.ListBuffer
 
 object Infer {
   case class TypeScheme(params: List[TypeVar], tp: Type)
@@ -26,6 +27,37 @@ object Infer {
     return (tmp, con1 ++: con2 :+ (ty1, FunType(ty2,tmp)))
   }
 
+  def getLetResult(env: Env, str: String, v: Term, t: Term): (Type, List[Constraint]) = {
+    val (type_v, con_v) = collect(env, v)     // type the v obtaining a type S and a set of constraints C
+    val s_to_t = unify(con_v)         // use unification on C
+    val new_t = s_to_t(type_v)        // find the new type T for S
+    var new_env = env.map(pair => (pair._1, TypeScheme(pair._2.params, s_to_t(pair._2.tp)))) // apply the substitution to the current env
+    //generalize some type variables inside T and obtain a type scheme.
+    val gen_T = ((getTypeVar(new_t).filterNot(tv => new_env.exists(e => isAppear(e._2.tp, tv))))).distinct   // get the remaining typeVar in T
+//    var gen_T = getTypeVar(new_t, new_env).distinct
+    //    gen_T = removeDupInEnv(gen_T, new_env)    // not generalize variables mentioned in env
+    val x_tpsch = TypeScheme(gen_T, new_t)
+    new_env = new_env :+ (str, x_tpsch)
+    return collect(new_env, t)
+  }
+
+  def getTypeVar(tp: Type): List[TypeVar] = tp match {
+    case y@TypeVar(name) =>  List(y)                // generate fresh type variables
+    case FunType(t1, t2) => (getTypeVar(t1) ++ getTypeVar(t2))
+    case _ => Nil
+  }
+
+//  def removeDupInEnv(l_var: List[TypeVar], env: Env): List[TypeVar] = {
+//    var res = ListBuffer[TypeVar] ()
+//    for (v <- l_var) {
+//      val existed = env.exists(e => (getTypeVar(e._2.tp).exists(tv => {tv.name == v.name})))
+//      if (!existed) {
+//        res += v
+//      }
+//    }
+//    return res.toList
+//  }
+
   def collect(env: Env, t: Term): (Type, List[Constraint]) = t match{
     case True => (BoolType, List())
     case False => (BoolType, List())
@@ -48,7 +80,14 @@ object Infer {
 
 
     case Var(s) => ((env.indexWhere(_._1 == s)) != -1) match{
-      case true => (env.find(_._1 == s).get._2.tp, List())
+      case true =>
+        val s_tpscheme = env.find(_._1 == s).get._2
+        val already_exist = (s_tpscheme.params.exists((p) => getTypeVar(s_tpscheme.tp).exists((t) => t == p)))
+        if (already_exist) {
+          (fresh(), List())
+        } else {
+          (s_tpscheme.tp, List())
+        }
       case _ => throw new TypeError("TypeError")
     }
 
@@ -58,6 +97,16 @@ object Infer {
     }
 
     case App(t1,t2) => getAppResult(env, t1, t2, fresh())
+
+    case Let(x, tp, v, t) =>
+      val (type_v, con_v) = collect(env, v)
+      val (type_t, con_t) = getLetResult(env, x, v, t)
+      tp match{
+//        case EmptyTypeTree() => (type_t, (con_v ++ con_t))
+//        case _=> (type_t, (con_v ++ ((type_v, tp.tpe) +: con_t)))
+        case EmptyTypeTree() => (type_t, con_t)
+        case _ => collect(env, App(Abs(x, tp, t), v))
+    }
 
     case _ => throw new TypeError("TypeError")
   }
@@ -76,7 +125,7 @@ object Infer {
   }
   def unify(c: List[Constraint]): Type => Type = {
     c.isEmpty match{
-      case true =>ty => ty
+      case true => ty => ty
       case false => {
         val (s,t) = c.head
         s == t match {
