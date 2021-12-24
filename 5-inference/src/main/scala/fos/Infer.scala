@@ -111,10 +111,8 @@ object Infer {
       val (type_v, con_v) = collect(env, v)
       val (type_t, con_t) = getLetResult(env, x, v, t)
       tp match{
-//        case EmptyTypeTree() => (type_t, (con_v ++ con_t))
-//        case _=> (type_t, (con_v ++ ((type_v, tp.tpe) +: con_t)))
-        case EmptyTypeTree() => (type_t, con_t)
-        case _ => collect(env, App(Abs(x, tp, t), v))
+        case EmptyTypeTree() => (type_t, (con_v ++ con_t))
+        case _=> (type_t, (con_v ++ ((type_v, tp.tpe) +: con_t)))
     }
 
     case _ => throw new TypeError("TypeError")
