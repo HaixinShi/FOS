@@ -20,7 +20,7 @@ object Infer {
     val (ty,con) = collect((str,TypeScheme(List(),tmp))::env, t)
     return (FunType(tmp,ty), con)
   }
-
+  //style incompatible
   def getAppResult(env: Env, t1: Term, t2: Term, tmp:Type):(Type, List[Constraint]) = {
     val (ty1,con1) = collect(env, t1)
     val (ty2,con2) = collect(env, t2)
@@ -31,17 +31,24 @@ object Infer {
     val (type_v, con_v) = collect(env, v)     // type the v obtaining a type S and a set of constraints C
     val s_to_t = unify(con_v)         // use unification on C
     val new_t = s_to_t(type_v)        // find the new type T for S
-    var new_env = env.map(pair => (pair._1, TypeScheme(pair._2.params, s_to_t(pair._2.tp)))) // apply the substitution to the current env
+    var new_env = env.map(pair => (pair._1, TypeScheme(pair._2.params, s_to_t(pair._2.tp)))) // √-apply the substitution to the current env
     //generalize some type variables inside T and obtain a type scheme.
-    val gen_T = ((getTypeVar(new_t).filterNot(tv => new_env.exists(e => isAppear(e._2.tp, tv))))).distinct   // get the remaining typeVar in T
+    //val gen_T = ((getTypeVar(new_t).filterNot(tv => new_env.exists(e => isAppear(e._2.tp, tv))))).distinct   // get the remaining typeVar in T
+    val gen_T = getTypeVar(new_t,new_env)
     val x_tpsch = TypeScheme(gen_T, new_t)
     new_env = new_env :+ (str, x_tpsch)
     return collect(new_env, t)
   }
 
-  def getTypeVar(tp: Type): List[TypeVar] = tp match {
-    case y@TypeVar(name) =>  List(y)                // generate fresh type variables
-    case FunType(t1, t2) => (getTypeVar(t1) ++ getTypeVar(t2))
+  def getTypeVar(tp: Type, env: Env): List[TypeVar] = tp match {
+    case y@TypeVar(name) =>  {
+      env.exists(s=>isAppear(s._2.tp, y))match {
+        case true => Nil
+        case false => List(y)
+      }
+    }
+    // generate fresh type variables
+    case FunType(t1, t2) => (getTypeVar(t1,env) ++ getTypeVar(t2,env))
     case _ => Nil
   }
 
@@ -63,13 +70,15 @@ object Infer {
     }
 
     case If(cond, t1, t2) =>
-      (collect(env, t2)._1, (collect(env, cond)._1, BoolType) :: (collect(env, t1)._1, collect(env, t2)._1) :: collect(env, cond)._2 ++: collect(env, t1)._2 ++: collect(env, t2)._2)
-
+      val temp0 = collect(env, cond)
+      val temp1 = collect(env, t1)
+      val temp2 = collect(env, t2)
+      (temp2._1, (temp0._1, BoolType) :: (temp1._1, temp2._1) :: temp0._2 ++: temp1._2 ++: temp2._2)
 
     case Var(s) => ((env.indexWhere(_._1 == s)) != -1) match{
       case true =>
         val s_tpscheme = env.find(_._1 == s).get._2
-        val already_exist = (s_tpscheme.params.exists((p) => getTypeVar(s_tpscheme.tp).exists((t) => t == p)))
+        val already_exist = (s_tpscheme.params.exists((p) => getTypeVar(s_tpscheme.tp,env).exists((t) => t == p)))
         if (already_exist) {
           (fresh(), List())
         } else {
