@@ -51,6 +51,18 @@ object Infer {
     case FunType(t1, t2) => (getTypeVar(t1,env) ++ getTypeVar(t2,env))
     case _ => Nil
   }
+  def findType(t:Type,m:Map[Type,TypeVar]):Type = t.isInstanceOf[TypeVar] match{
+    case true => m contains t match {
+      case true => m(t)
+      case false => t
+    }
+    case false => {
+      t match {
+        case FunType(t1, t2) => FunType(findType(t1,m),findType(t2,m))
+        case _ =>t
+      }
+    }
+  }
 
   def collect(env: Env, t: Term): (Type, List[Constraint]) = t match{
     case True => (BoolType, List())
@@ -78,11 +90,12 @@ object Infer {
     case Var(s) => ((env.indexWhere(_._1 == s)) != -1) match{
       case true =>
         val s_tpscheme = env.find(_._1 == s).get._2
-        val already_exist = (s_tpscheme.params.exists((p) => getTypeVar(s_tpscheme.tp,env).exists((t) => t == p)))
-        if (already_exist) {
-          (fresh(), List())
-        } else {
-          (s_tpscheme.tp, List())
+        s_tpscheme._1.isEmpty match {
+          case true => (s_tpscheme._2, List())
+          case false =>{
+            val m = s_tpscheme._1.map(x=>Tuple2(x.asInstanceOf[Type],fresh())).toMap
+            (findType(s_tpscheme._2,m),List())
+          }
         }
       case _ => throw new TypeError("TypeError")
     }
