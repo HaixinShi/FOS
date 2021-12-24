@@ -27,14 +27,14 @@ object Infer {
     return (tmp, con1 ++: con2 :+ (ty1, FunType(ty2,tmp)))
   }
 
-  def getLetResult(env: Env, str: String, v: Term, t: Term): (Type, List[Constraint]) = {
-    val (type_v, con_v) = collect(env, v)     // type the v obtaining a type S and a set of constraints C
+  def getLetResult(env: Env, str: String, v: Term, t: Term, type_v:Type,con_v:List[Constraint]): (Type, List[Constraint]) = {
+    //val (type_v, con_v) = collect(env, v)     // type the v obtaining a type S and a set of constraints C
     val s_to_t = unify(con_v)         // use unification on C
     val new_t = s_to_t(type_v)        // find the new type T for S
     var new_env = env.map(pair => (pair._1, TypeScheme(pair._2.params, s_to_t(pair._2.tp)))) // √-apply the substitution to the current env
     //generalize some type variables inside T and obtain a type scheme.
     //val gen_T = ((getTypeVar(new_t).filterNot(tv => new_env.exists(e => isAppear(e._2.tp, tv))))).distinct   // get the remaining typeVar in T
-    val gen_T = getTypeVar(new_t,new_env)
+    val gen_T = getTypeVar(new_t,new_env).distinct
     val x_tpsch = TypeScheme(gen_T, new_t)
     new_env = new_env :+ (str, x_tpsch)
     return collect(new_env, t)
@@ -107,14 +107,14 @@ object Infer {
 
     case App(t1,t2) => getAppResult(env, t1, t2, fresh())
 
-    case Let(x, tp, v, t) =>
+    case Let(x, tp, v, t) =>{
       val (type_v, con_v) = collect(env, v)
-      val (type_t, con_t) = getLetResult(env, x, v, t)
+      val (type_t, con_t) = getLetResult(env, x, v, t,type_v,con_v)
       tp match{
         case EmptyTypeTree() => (type_t, (con_v ++ con_t))
-        case _=> (type_t, (con_v ++ ((type_v, tp.tpe) +: con_t)))
+        case _=> (type_t, con_v ++ con_t :+(type_v, tp.tpe))
+      }
     }
-
     case _ => throw new TypeError("TypeError")
   }
   //def isVariable
@@ -139,7 +139,7 @@ object Infer {
           case true => unify(c.tail)
           case false =>{
             (s.isInstanceOf[TypeVar],t.isInstanceOf[TypeVar]) match {
-              case (true, _) =>{
+              case (true, false) =>{
                 isAppear(s,t) match{
                   case true => throw new TypeError("TypeError")
                   case false => {
@@ -150,13 +150,31 @@ object Infer {
                   }
                 }
               }
-              case (_, true) =>{
+              case (false, true) =>{
                 //TODO:the same as before
                 //Map()
                 isAppear(t,s) match{
                   case true => throw new TypeError("TypeError")
                   case false => {
                     unify(c.tail.map{x => (substitution(x._1, t, s),substitution(x._2, t, s))}).compose { ty => substitution(ty, t, s)}
+                  }
+                }
+              }
+              case (true, true) => {
+                isAppear(s,t) match{
+                  case true => {
+                    isAppear(t,s) match{
+                      case true => throw new TypeError("TypeError")
+                      case false => {
+                        unify(c.tail.map{x => (substitution(x._1, t, s),substitution(x._2, t, s))}).compose { ty => substitution(ty, t, s)}
+                      }
+                    }
+                  }
+                  case false => {
+                    //TODO:extend substitution
+                    //TODO:apply this substitution to c.tail
+                    //Map()
+                    unify(c.tail.map{x => (substitution(x._1, s, t),substitution(x._2, s, t))}).compose { ty => substitution(ty, s, t)}
                   }
                 }
               }
